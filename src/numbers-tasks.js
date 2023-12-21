@@ -161,8 +161,10 @@ function getLastDigit(value) {
  *     '37'     => 37
  * '-525.5'     => -525.5
  */
-function parseNumberFromString(/* value */) {
-  throw new Error('Not implemented');
+function parseNumberFromString(value) {
+  const numberValue = Number(value);
+
+  return numberValue;
 }
 
 /**
@@ -178,8 +180,15 @@ function parseNumberFromString(/* value */) {
  *   3,3,3   => 5.196152422706632
  *   1,2,3   => 3.741657386773941
  */
-function getParallelepipedDiagonal(/* a, b, c */) {
-  throw new Error('Not implemented');
+function getParallelepipedDiagonal(a, b, c) {
+  const squareA = a ** 2;
+  const squareB = b ** 2;
+  const squareC = c ** 2;
+  const sumSquares = squareA + squareB + squareC;
+
+  const diagonal = Math.sqrt(sumSquares);
+
+  return diagonal;
 }
 
 /**
@@ -199,8 +208,20 @@ function getParallelepipedDiagonal(/* a, b, c */) {
  *   1678, 2  => 1700
  *   1678, 3  => 2000
  */
-function roundToPowerOfTen(/* num, pow */) {
-  throw new Error('Not implemented');
+function roundToPowerOfTen(num, pow) {
+  switch (pow) {
+    case 1:
+      return Math.round(num / 10) * 10;
+
+    case 2:
+      return Math.round(num / 100) * 100;
+
+    case 3:
+      return Math.round(num / 1000) * 1000;
+
+    default:
+      return num;
+  }
 }
 
 /**
@@ -220,8 +241,13 @@ function roundToPowerOfTen(/* num, pow */) {
  *   16 => false
  *   17 => true
  */
-function isPrime(/* n */) {
-  throw new Error('Not implemented');
+function isPrime(n) {
+  if (n === 2 || n === 3) return true;
+  if (n <= 1 || n % 2 === 0 || n % 3 === 0) return false;
+  for (let i = 5; i * i <= n; i += 6) {
+    if (n % i === 0 || n % (i + 2) === 0) return false;
+  }
+  return true;
 }
 
 /**
@@ -239,8 +265,13 @@ function isPrime(/* n */) {
  *   toNumber(42, 0) => 42
  *   toNumber(new Number(42), 0) => 42
  */
-function toNumber(/* value, def */) {
-  throw new Error('Not implemented');
+function toNumber(value, def) {
+  const num = Number(value);
+
+  if (Number.isNaN(num)) {
+    return def;
+  }
+  return num;
 }
 
 /**
@@ -254,8 +285,10 @@ function toNumber(/* value, def */) {
  *   -2 => -8
  *   0  => 0
  */
-function getCube(/* num */) {
-  throw new Error('Not implemented');
+function getCube(num) {
+  const cubeNum = num ** 3;
+
+  return cubeNum;
 }
 
 /**
